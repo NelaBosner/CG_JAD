@@ -8,6 +8,8 @@
 #include "cg_jad_oblique_var_org.h"
 #include "cg_jad_oblique_var_par.h"
 
+int max_num_cores = 24;
+
 int main()
 {
 	int m[] = {10, 20, 50, 100, 200, 1000}; // Choices for the number of input matrices
@@ -32,7 +34,7 @@ int main()
     int curve, linesear, conj, incx=1;
     int IDIST = 3;
 	int iter_s, iter_p;
-    int ISEED[] = { 321, 756, 3, 2001 };
+    int ISEED[] = { 4000, 3000, 2000, 1001 };
     int *ldA;
     double ZERO = 0, ONE = 1;
 	double baze, col_norm, t_s, t_p, tol_X0 = 1e-3;
@@ -126,12 +128,12 @@ int main()
                         {
                             inmt_g = inmt_g_opt[curve*6+linesear*3+conj]; // Comment for the first test round.
                             nmklt_g = num_mkl_threads[inmt_g][in+im*4];
-                            nt_g = 24 / nmklt_g - 1;
+                            nt_g = max_num_cores / nmklt_g - 1;
                             //for ( inmt_d = 0; inmt_d < 2; inmt_d++ ) // Loop for choosing the optimal number of BLAS threads for traces_by_ddots(). Uncomment for the first test round.
                             {
                                 inmt_d = inmt_d_opt[curve*6+linesear*3+conj]; // Comment for the first test round.
                                 nmklt_d = num_mkl_threads[2+inmt_d][in+im*4];
-                                nt_d = 24 / nmklt_d - 1;
+                                nt_d = max_num_cores / nmklt_d - 1;
 
                                 // .. Execute and measure the time of the parallel form of the algorithm.
                                 dlacpy( "A", &n[in], &n[in], Xw, &n[in], X, &n[in] );
