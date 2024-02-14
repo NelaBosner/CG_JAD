@@ -1428,8 +1428,16 @@ static double trace_of_product( char trans, double *A, int ldA, double *B, int l
 
     //------------------------------------------------------------------
 
-    nt = imin(nt_ddots,n-1);
-    mkl_set_num_threads(num_mkl_threads_ddots);
+    if ( trans == 'T' )
+    {
+        nt = 0;
+        mkl_set_num_threads(max_num_threads+1);
+    }
+    else
+    {
+        nt = imin(nt_ddots,n-1);
+        mkl_set_num_threads(num_mkl_threads_ddots);
+    }
 
     // .. Create the context for computing sum of traces of matrix products.
     traces_by_ddots_context->nt = nt;

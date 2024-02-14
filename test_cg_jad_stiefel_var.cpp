@@ -20,8 +20,8 @@ int main()
     int nt_mkl_gemm_t[] = {6, 4, 12, 24, 8, 6, 24, 12, 8, 6, 8, 4, 8, 4, 6, 4, 8, 3, 12, 2, 1, 2, 8, 1}; // Optimal numbers of BLAS threads for multiple_gemms() with trans1='t'.
     int nt_mkl_dots_n[] = {12, 2, 1, 1, 3, 2, 1, 1, 8, 2, 1, 1, 4, 2, 1, 1, 12, 1, 1, 1, 1, 1, 1, 1}; // Optimal numbers of BLAS threads for traces_by_ddots() with trans='n'.
     int nt_mkl_dots_t[] = {8, 3, 4, 2, 3, 4, 3, 12, 3, 8, 6, 1, 6, 8, 3, 2, 4, 3, 8, 1, 8, 3, 12, 3}; // Optimal numbers of BLAS threads for traces_by_ddots() with trans='t'.
-    int inmt_g_opt[] = {1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1}; // Optimal choices of parameter inmt_g in the second test round, for m=1000 and n=100.
-    int inmt_d_opt[] = {0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1}; // Optimal choices of parameter inmt_d in the second test round, for m=1000 and n=100.
+    int inmt_g_opt[] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}; // Optimal choices of parameter inmt_g in the second test round, for m=1000 and n=100.
+    int inmt_d_opt[] = {0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1}; // Optimal choices of parameter inmt_d in the second test round, for m=1000 and n=100.
 	int *num_mkl_threads[4];
     num_mkl_threads[0] = nt_mkl_gemm_n;
     num_mkl_threads[1] = nt_mkl_gemm_t;
