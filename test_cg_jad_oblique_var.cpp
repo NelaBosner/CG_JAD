@@ -1,3 +1,9 @@
+// Test file for Riemannian conjugate gradient method on the oblique manifold for joint approximate diagonalization.
+// This file implements two test round described in the "Numerical experiments" section of the paper 
+// "Parallel implementations of Riemannian conjugate gradient methods for joint approximate diagonalization"
+//
+// Author: Nela Bosner
+//
 #include <mkl.h>
 #include <math.h>
 #include <string.h>

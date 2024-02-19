@@ -17,6 +17,6 @@ n : dimension of input matrices
 tol: tolerance on the function drop
 A : set of input matrices
 ldA : leading dimensions of A
-X : initial solution aproximation on the manifold
+X : initial solution approximation on the manifold
 ldX : leading dimension of X
 */
