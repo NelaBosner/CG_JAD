@@ -7,7 +7,7 @@ curve : choice of the curve for the line search
     1 - retraction
 linsear : choice of the line search algorithm
     0 - Nelder-Mead method, 
-    1 - Armijo's bactracking
+    1 - Armijo's backtracking
 conj : choice of conjugacy formula
     0 - exact conjugation, 
     1 - Polak-Riebiere formula, 

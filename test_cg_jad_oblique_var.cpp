@@ -39,9 +39,10 @@ int main()
 	int i, im, inmt_d, inmt_g, in, info, j, n2, nmklt_d, nmklt_g, nt_d, nt_g, p;
     int curve, linesear, conj, incx=1;
     int IDIST = 3;
+    int incx = 1;
 	int iter_s, iter_p;
     int ISEED[] = { 4000, 3000, 2000, 1001 };
-    int *ldA;
+    int *ldA, , *ipiv;;
     double ZERO = 0, ONE = 1;
 	double baze, col_norm, t_s, t_p, tol_X0 = 1e-3;
     double *Qe, *tau, *W, *X, *Xw, **A;
@@ -69,6 +70,7 @@ int main()
             Xw = (double*) malloc(n2*sizeof(double));
     		W = (double*) malloc(n2*sizeof(double));
     		tau = (double*) malloc(n[in]*sizeof(double));
+            ipiv = (int*) malloc(n[in]*sizeof(int));
 
 			for ( p = 0; p < m[im]; p++ )
     		{
